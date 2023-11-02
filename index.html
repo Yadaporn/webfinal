@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">
+                <img src="./img/logo01.png" class="logonav">
+            </a>
+            <div class="nav-profile">
+                <p class="nav-profile-name">รถเข็น</p>
+                <div onclick="openCart()" style="cursor: pointer;" class="nav-profile-cart">
+                    <i class="fas fa-cart-plus fa-bounce fa-xl" style="--fa-primary-color: #fffbfb; --fa-secondary-color: #a24949;"></i>
+                    <div id="cartcount" class="cartcount" style="display: none;">
+                        0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="sidebar">
+        <input onkeydown="searchsomething(this)" id="txt_search" type="text" class="sidebar-search" placeholder="ค้นหา...">
+            <a onclick="searchproduct('all')" class="sidebar-items">
+                ทั้งหมด
+            </a>
+            <a class="nav-profile-name">ผู้ชาย</a>
+        
+            <a onclick="searchproduct('sh01')" class="sidebar-items">
+                เสื้อ
+            </a>
+            <a onclick="searchproduct('sht01')" class="sidebar-items">
+                เสื้อนอก
+            </a>
+            <a onclick="searchproduct('pt01')" class="sidebar-items">
+                กางเกง
+            </a>
+            <a onclick="searchproduct('shg01')" class="sidebar-items">
+                ชุดลำลอง
+            </a>
+            <a onclick="searchproduct('etc01')" class="sidebar-items">
+                เครื่องแต่งกายอื่นๆ
+            </a>
+
+            <a class="nav-profile-name">ผู้หญิง</a>
+        
+            <a onclick="searchproduct('sh02')" class="sidebar-items">
+                เสื้อ
+            </a>
+            <a onclick="searchproduct('sht02')" class="sidebar-items">
+                เสื้อนอก
+            </a>
+            <a onclick="searchproduct('pt02')" class="sidebar-items">
+                กางเกง
+            </a>
+            <a onclick="searchproduct('shg02')" class="sidebar-items">
+                ชุดลำลอง
+            </a>
+            <a onclick="searchproduct('etc02')" class="sidebar-items">
+                เครื่องแต่งกายอื่นๆ
+            </a>
+            
+        </div>
+        <div id="productlist" class="product">
+            
+            
+
+
+        </div>
+    </div>
+
+    <div id="modalDesc" class="modal" style="display: none;">
+        <div onclick="closeModal()" class="modal-bg"></div>
+        <div class="modal-page">
+            <p2>รายละเอียดสินค้า</p2>
+            <br>
+            <br>
+            <div class="modaldesc-content">
+                <img id="mdd-img" class="modaldesc-img" src="https://images.unsplash.com/photo-1579446565308-427218a2c60e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmlsYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+       
+                <div class="modaldesc-detail">
+                    <p id="mdd-name" style="font-size: 1.5vw;">Product name</p>
+                    <p id="mdd-price" style="font-size: 1.2vw;">500 THB</p>
+                    <br>
+                    <p id="mdd-desc" style="color: #adadad; font-size: 1.2vw;">dignissimos pariatur quia nihil eaque sint, cumque, quas optio ut distinctio qui beatae culpa error facilis obcaecati!</p>
+                    <br>
+                    <div class="btn-control">
+                        <button onclick="closeModal()" class="btn ">
+                            ปิด
+                        </button>
+                        <button onclick="addtocart()" class="btn btn-buy">
+                            ใส่ตะกร้า
+                        </button>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <div id="modalCart" class="modal" style="display: none;">
+        <div onclick="closeModal()" class="modal-bg"></div>
+        <div class="modal-page">
+            <p2>ตะกร้าของฉัน</p2>
+            <br>
+            <br>
+            <div id="mycart" class="cartlist"></div>
+            
+                
+            
+            <div class="btn-control">
+                <button onclick="closeModal()" class="btn">
+                    ยกเลิก
+                </button>
+                <button onclick="buynow()" class="btn btn-buy">
+                    ซื้อ
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+</body>
+</html>
